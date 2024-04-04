@@ -1,25 +1,25 @@
 
 kisiler = []
 
-def kisi_ekle(ad, soyad):
-    kisi = {'ad': ad, 'soyad': soyad}
+def kisi_ekle(ad, soyad, numara):
+    kisi = {'ad': ad, 'soyad': soyad, 'numara': numara}
     kisiler.append(kisi)
-    print(f"{ad} {soyad} kişisi eklendi.")
+    print(f"{ad} {soyad} {numara}kişisi eklendi.")
 
-def kisi_sil(ad, soyad):
+def kisi_sil(ad, soyad, numara):
     for kisi in kisiler:
-        if kisi['ad'] == ad and kisi['soyad'] == soyad:
+        if kisi['ad'] == ad and kisi['soyad'] == soyad and kisi['numara'] == numara:
             kisiler.remove(kisi)
-            print(f"{ad} {soyad} kişisi silindi.")
+            print(f"{ad} {soyad} {numara} kişisi silindi.")
             return
-    print(f"{ad} {soyad} kişisi bulunamadı.")
+    print(f"{ad} {soyad} {numara} kişisi bulunamadı.")
 
-def kisi_ara(ad, soyad):
+def kisi_ara(ad, soyad, numara):
     for kisi in kisiler:
-        if kisi['ad'] == ad and kisi['soyad'] == soyad:
-            print(f"{ad} {soyad} kişisi aranıyor...")
+        if kisi['ad'] == ad | kisi['soyad'] == soyad | kisi['numara'] == numara:
+            print(f"{ad} {soyad} {numara} kişisi aranıyor...")
             return
-    print(f"{ad} {soyad} kişisi bulunamadı.")
+    print(f"{ad} {soyad} {numara} kişisi bulunamadı.")
 
 
 def kisi_say(ad):
@@ -33,7 +33,7 @@ def kisileri_goster():
         return
     print("Kişiler:")
     for kisi in kisiler:
-        print(f"{kisi['ad']} {kisi['soyad']}")
+        print(f"{kisi['ad']} {kisi['soyad']} {kisi['numara']}")
 
 
 while True:
@@ -49,15 +49,18 @@ while True:
     if secim == '1':
         ad = input("Kişinin adını girin: ")
         soyad = input("Kişinin soyadını girin: ")
-        kisi_ekle(ad, soyad)
+        numara = input("kişinin numarasını girin:")
+        kisi_ekle(ad, soyad, numara)
     elif secim == '2':
         ad = input("Silmek istediğiniz kişinin adını girin: ")
         soyad = input("Silmek istediğiniz kişinin soyadını girin: ")
-        kisi_sil(ad, soyad)
+        numara = input("kişinin numarasını girin:")
+        kisi_sil(ad, soyad, numara)
     elif secim == '3':
         ad = input("Aramak istediğiniz kişinin adını girin: ")
         soyad = input("Aramak istediğiniz kişinin soyadını girin: ")
-        kisi_ara(ad, soyad)
+        numara = input("kişinin numarasını girin:")
+        kisi_ara(ad, soyad, numara)
     elif secim == '4':
         ad = input("Sayısını öğrenmek istediğiniz kişinin adını girin: ")
         kisi_say(ad)
@@ -66,3 +69,4 @@ while True:
         break
     else:
         print("Geçersiz seçim. Lütfen tekrar deneyin.")
+        
