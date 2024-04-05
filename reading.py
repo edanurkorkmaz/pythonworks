@@ -21,10 +21,10 @@ file = open("newfile.txt","r", encoding = "utf-8")
 # print("içerik 1")
 # print(content1)
 
-# content2 = file.read()
+content2 = file.read()
 
 # print("içerik 2")
-# print(content2)
+print(content2)
 
 # content = file.read(5)
 # content = file.read(3)

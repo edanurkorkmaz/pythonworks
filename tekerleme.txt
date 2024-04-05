@@ -1,0 +1,4 @@
+Al şu takatukaları, takatukacıya takatukalattır da getir.
+Takatukacı takatukaları 
+takatukalamazsa,takatukaları 
+takatukacıdan takatukalattırmadan geri getir.
