@@ -1,0 +1,3 @@
+python cok eglenceli
+python ayni zamanda cok da zor
+python ogreniyorum.
