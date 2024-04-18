@@ -38,11 +38,11 @@ def yesil():
 
 while True:
     yesil()
-    time.sleep(3)
+    time.sleep(9)
     sari()
     time.sleep(3)
     kirmizi()
-    time.sleep(3)
+    time.sleep(9)
 
 
 
