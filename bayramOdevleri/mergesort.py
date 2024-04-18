@@ -1,8 +1,3 @@
-# Sıralı olmayan diziyi ortadan eşit olarak iki alt diziye ayırır.
-# Bu ayırma işlemi, alt diziler en çok iki elemanlı olana kadar devam eder.
-# Alt dizileri kendi içinde sıralar.
-# Sıralı iki alt diziyi tek bir sıralı dizi olacak şekilde birleştirir.
-
 def birlestir(sol, sag):
      siraliliste = []
      i = k = 0

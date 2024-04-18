@@ -6,12 +6,26 @@ def kisi_ekle():
     rehber[isim] = telefon
     print(f"{isim} rehbere eklendi.")
 
-def kisi_ara():
-    isim = input("Aranacak kişinin adını girin: ")
+def kisi_sil():
+    isim = input("Silmek istediğiniz kişinin adını girin: ")
     if isim in rehber:
-        print(f"{isim}: {rehber[isim]}")
+        del rehber[isim]
+        print(f"{isim} rehberden silindi.")
     else:
         print(f"{isim} rehberde bulunamadı.")
+
+def kisi_ara():
+    arama = input("Arama yapmak istediğiniz ismi veya numarası girin: ")
+    bulunanlar = []
+    for isim, telefon in rehber.items():
+        if arama.lower() in isim.lower() or arama in telefon:
+            bulunanlar.append((isim, telefon))
+    if bulunanlar:
+        print("Arama Sonuçları:")
+        for isim, telefon in bulunanlar:
+            print(f"{isim}: {rehber[isim]} aranıyor..")
+    else:
+        print("Aranan kriterlere uygun kişi bulunamadı.")
 
 def rehberi_goster():
     if rehber:
@@ -25,8 +39,9 @@ while True:
     print("\nYapabileceğiniz işlemler:")
     print("1. Kişi Ekle")
     print("2. Kişi Ara")
-    print("3. Rehberi Göster")
-    print("4. Çıkış")
+    print("3. Kişi Sil")
+    print("4. Rehberi Göster")
+    print("5. Çıkış")
 
     secim = input("Lütfen yapmak istediğiniz işlemi seçin: ")
 
@@ -35,8 +50,10 @@ while True:
     elif secim == "2":
         kisi_ara()
     elif secim == "3":
-        rehberi_goster()
+        kisi_sil()
     elif secim == "4":
+        rehberi_goster()
+    elif secim == "5":
         print("Rehber uygulamasından çıkılıyor.")
         break
     else:
