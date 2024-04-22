@@ -7,45 +7,59 @@ def tahta_görüntüle(tahta):
 
 def oyuncu_girişi():
     işaret = ''
-    while not (işaret == 'X' or işaret == 'O'):
-        işaret = input('Oyuncu 1: X mı yoksa O mu olmak istersiniz? ').upper()
-    if işaret == 'X':
-        return ('X', 'O')
-    else:
-        return ('O', 'X')
+    while işaret not in ('X', 'O'):
+        try:
+            işaret = input('Oyuncu 1: X mi yoksa O mu olmak istersiniz? ').upper()
+            if işaret not in ('X', 'O'):
+                raise ValueError('Yanlış giriş, lütfen "X" veya "O" seçin.')
+        except ValueError as e:
+            print(e)
+    return ('X', 'O') if işaret == 'X' else ('O', 'X')
 
 def işareti_yerleştir(tahta, işaret, pozisyon):
     tahta[pozisyon] = işaret
 
 def kazanan_kontrol(tahta, işaret):
-    return ((tahta[7] == işaret and tahta[8] == işaret and tahta[9] == işaret) or 
-            (tahta[4] == işaret and tahta[5] == işaret and tahta[6] == işaret) or 
-            (tahta[1] == işaret and tahta[2] == işaret and tahta[3] == işaret) or 
-            (tahta[7] == işaret and tahta[4] == işaret and tahta[1] == işaret) or 
-            (tahta[8] == işaret and tahta[5] == işaret and tahta[2] == işaret) or 
-            (tahta[9] == işaret and tahta[6] == işaret and tahta[3] == işaret) or 
-            (tahta[7] == işaret and tahta[5] == işaret and tahta[3] == işaret) or 
-            (tahta[9] == işaret and tahta[5] == işaret and tahta[1] == işaret))
+    return (
+        (tahta[7] == işaret and tahta[8] == işaret and tahta[9] == işaret) or
+        (tahta[4] == işaret and tahta[5] == işaret and tahta[6] == işaret) or
+        (tahta[1] == işaret and tahta[2] == işaret and tahta[3] == işaret) or
+        (tahta[7] == işaret and tahta[4] == işaret and tahta[1] == işaret) or
+        (tahta[8] == işaret and tahta[5] == işaret and tahta[2] == işaret) or
+        (tahta[9] == işaret and tahta[6] == işaret and tahta[3] == işaret) or
+        (tahta[7] == işaret and tahta[5] == işaret and tahta[3] == işaret) or
+        (tahta[9] == işaret and tahta[5] == işaret and tahta[1] == işaret)
+    )
 
 def boş_alan_kontrol(tahta, pozisyon):
     return tahta[pozisyon] == ' '
 
 def tam_tahta_kontrol(tahta):
-    for i in range(1, 10):
-        if boş_alan_kontrol(tahta, i):
-            return False
-    return True
+    return all(not boş_alan_kontrol(tahta, i) for i in range(1, 10))
 
 def oyuncu_seçimi(tahta):
-    pozisyon = 0
-    while pozisyon not in range(1, 10) or not boş_alan_kontrol(tahta, pozisyon):
-        pozisyon = int(input('Sıradaki hamlenizi seçin: (1-9) '))
-    return pozisyon
+    while True:
+        try:
+            pozisyon = int(input('Sıradaki hamlenizi seçin: (1-9) '))
+            if pozisyon not in range(1, 10):
+                raise ValueError('Lütfen 1 ile 9 arasında bir sayı girin.')
+            if not boş_alan_kontrol(tahta, pozisyon):
+                raise ValueError('Bu pozisyon zaten dolu, başka birini seçin.')
+            return pozisyon
+        except ValueError as e:
+            print(f'Hata: {e}')
 
 def tekrar_oyna():
-    return input('Tekrar oynamak istiyor musunuz? Evet veya Hayır girin: ').lower().startswith('e')
+    while True:
+        try:
+            cevap = input('Tekrar oynamak istiyor musunuz? Evet veya Hayır girin: ').lower()
+            if cevap not in ('evet', 'hayır'):
+                raise ValueError('Yanlış giriş, lütfen "evet" veya "hayır" girin.')
+            return cevap.startswith('e')
+        except ValueError as e:
+            print(e)
 
-print('Tic Tac Toe\'ya Hoşgeldiniz!')
+print("Tic Tac Toe'ya Hoşgeldiniz!")
 
 while True:
     tahta = [' '] * 10
@@ -54,39 +68,37 @@ while True:
     oyun_durumu = True
 
     while oyun_durumu:
+        tahta_görüntüle(tahta)
+
         if sıra == 'Oyuncu 1':
-            tahta_görüntüle(tahta)
             pozisyon = oyuncu_seçimi(tahta)
             işareti_yerleştir(tahta, oyuncu1_işareti, pozisyon)
 
             if kazanan_kontrol(tahta, oyuncu1_işareti):
                 tahta_görüntüle(tahta)
-                print('Tebrikler! Oyunu kazandınız!')
+                print("Tebrikler! Oyunu kazandınız!")
                 oyun_durumu = False
+            elif tam_tahta_kontrol(tahta):
+                tahta_görüntüle(tahta)
+                print("Oyun berabere!")
+                break
             else:
-                if tam_tahta_kontrol(tahta):
-                    tahta_görüntüle(tahta)
-                    print('Oyun berabere!')
-                    break
-                else:
-                    sıra = 'Oyuncu 2'
+                sıra = 'Oyuncu 2'
 
         else:
-            tahta_görüntüle(tahta)
             pozisyon = oyuncu_seçimi(tahta)
             işareti_yerleştir(tahta, oyuncu2_işareti, pozisyon)
 
             if kazanan_kontrol(tahta, oyuncu2_işareti):
                 tahta_görüntüle(tahta)
-                print('Oyuncu 2 kazandı!')
+                print("Oyuncu 2 kazandı!")
                 oyun_durumu = False
+            elif tam_tahta_kontrol(tahta):
+                tahta_görüntüle(tahta)
+                print("Oyun berabere!")
+                break
             else:
-                if tam_tahta_kontrol(tahta):
-                    tahta_görüntüle(tahta)
-                    print('Oyun berabere!')
-                    break
-                else:
-                    sıra = 'Oyuncu 1'
+                sıra = 'Oyuncu 1'
 
     if not tekrar_oyna():
         break

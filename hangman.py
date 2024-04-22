@@ -65,6 +65,7 @@ if hak !=0:
     print("tebrikler kazandınız:",kelime)
 else:
     print("maalesef kaybettiniz. kelime:",kelime," idi")
+    
 
 
 
