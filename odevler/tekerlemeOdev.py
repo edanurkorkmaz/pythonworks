@@ -1,5 +1,5 @@
 file = open("tekerleme.txt","r") 
-file = open("C:\Users\Topfiyt3\Desktop\pythonworks\odevler","w")
+#file = open("C:/Users/Topfiyt3/Desktop/pythonworks/odevler/tekerleme.txt","w")
 
 tekerleme = file.read()
 harf = input("Lütfen bir harf girin: ")

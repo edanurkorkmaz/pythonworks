@@ -17,12 +17,12 @@ def kisi_sil(ad, soyad):
     print(f"{ad} {soyad} kişisi bulunamadı.")
 
 # Kişi arama fonksiyonu
-def kisi_ara(ad, soyad):
+def kisi_ara(bilgi):
     for kisi in kisiler:
-        if kisi['ad'] == ad and kisi['soyad'] == soyad:
-            print(f"{ad} {soyad} kişisi bulundu.")
+        if kisi['ad'] == bilgi or kisi['soyad'] == bilgi:
+            print(f"{kisi['ad'], kisi['soyad']} kişisi aranıyor.")
             return
-    print(f"{ad} {soyad} kişisi bulunamadı.")
+    print(f"{bilgi} kişisi bulunamadı.")
 
 # Belirli bir koşulu sağlayan kişi sayısını bulma fonksiyonu
 def kisi_say(ad, soyad):
@@ -58,9 +58,10 @@ while True:
         soyad = input("Silmek istediğiniz kişinin soyadını girin: ")
         kisi_sil(ad, soyad)
     elif secim == '3':
-        ad = input("Aramak istediğiniz kişinin adını girin: ")
-        soyad = input("Aramak istediğiniz kişinin soyadını girin: ")
-        kisi_ara(ad, soyad)
+       #ad = input("Aramak istediğiniz kişinin adını girin: ")
+        #soyad = input("Aramak istediğiniz kişinin soyadını girin: ")
+        bilgi=input("lütfen istediğiniz kişinin adını,soyadını veya numarasını girin: ")
+        kisi_ara(bilgi)
     elif secim == '4':
         ad = input("Sayısını öğrenmek istediğiniz kişinin adını girin: ")
         soyad = input("Sayısını öğrenmek istediğiniz kişinin soyadını girin: ")
