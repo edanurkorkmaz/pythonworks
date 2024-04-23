@@ -1,21 +1,20 @@
-# Kişilerin tutulacağı bir liste oluşturalım
-kisiler = []
+rehber = {}
 
-# Kişi ekleme fonksiyonu
-def kisi_ekle(ad, soyad):
-    kisi = {'ad': ad, 'soyad': soyad}
-    kisiler.append(kisi)
-    print(f"{ad} {soyad} kişisi eklendi.")
+def kisi_ekle():
+    isim = input("Kişinin adını girin: ")
+    telefon = input("Kişinin telefon numarasını girin: ")
+    rehber[isim] = telefon
+    print(f"{isim} rehbere eklendi.")
 
-# Kişi silme fonksiyonu
-def kisi_sil(ad, soyad):
-    for kisi in kisiler:
-        if kisi['ad'] == ad and kisi['soyad'] == soyad:
-            kisiler.remove(kisi)
-            print(f"{ad} {soyad} kişisi silindi.")
-            return
-    print(f"{ad} {soyad} kişisi bulunamadı.")
+def kisi_sil():
+    isim = input("Silmek istediğiniz kişinin adını girin: ")
+    if isim in rehber:
+        del rehber[isim]
+        print(f"{isim} rehberden silindi.")
+    else:
+        print(f"{isim} rehberde bulunamadı.")
 
+<<<<<<< HEAD
 # Kişi arama fonksiyonu
 def kisi_ara(bilgi):
     for kisi in kisiler:
@@ -23,32 +22,40 @@ def kisi_ara(bilgi):
             print(f"{kisi['ad'], kisi['soyad']} kişisi aranıyor.")
             return
     print(f"{bilgi} kişisi bulunamadı.")
+=======
+def kisi_ara():
+    arama = input("Arama yapmak istediğiniz ismi veya numarası girin: ")
+    bulunanlar = []
+    for isim, telefon in rehber.items():
+        if arama.lower() in isim.lower() or arama in telefon:
+            bulunanlar.append((isim, telefon))
+    if bulunanlar:
+        print("Arama Sonuçları:")
+        for isim, telefon in bulunanlar:
+            print(f"{isim}: {rehber[isim]} aranıyor..")
+    else:
+        print("Aranan kriterlere uygun kişi bulunamadı.")
+>>>>>>> c391ffc18917467bb95b7afca50a2a01c7724156
 
-# Belirli bir koşulu sağlayan kişi sayısını bulma fonksiyonu
-def kisi_say(ad, soyad):
-    count = sum(1 for kisi in kisiler if kisi['ad'] == ad and kisi['soyad'] == soyad)
-    print(f"{ad} {soyad} kişisinin sayısı: {count}")
+def rehberi_goster():
+    if rehber:
+        print("Rehberinizdeki kişiler:")
+        for isim, telefon in rehber.items():
+            print(f"{isim}: {telefon}")
+    else:
+        print("Rehberiniz şu anda boş.")
 
-# Tüm kişileri gösterme fonksiyonu
-def kisileri_goster():
-    if len(kisiler) == 0:
-        print("Listede hiç kişi yok.")
-        return
-    print("Kişiler:")
-    for kisi in kisiler:
-        print(f"{kisi['ad']} {kisi['soyad']}")
-
-# Ana döngü
 while True:
-    print("\n1. Kişi Ekle")
-    print("2. Kişi Sil")
-    print("3. Kişi Ara")
-    print("4. Kişi Say")
-    print("5. Kişileri Göster")
-    print("6. Çıkış")
+    print("\nYapabileceğiniz işlemler:")
+    print("1. Kişi Ekle")
+    print("2. Kişi Ara")
+    print("3. Kişi Sil")
+    print("4. Rehberi Göster")
+    print("5. Çıkış")
 
-    secim = input("Yapmak istediğiniz işlemi seçin: ")
+    secim = input("Lütfen yapmak istediğiniz işlemi seçin: ")
 
+<<<<<<< HEAD
     if secim == '1':
         ad = input("Kişinin adını girin: ")
         soyad = input("Kişinin soyadını girin: ")
@@ -70,6 +77,18 @@ while True:
         kisileri_goster()
     elif secim == '6':
         print("Programdan çıkılıyor...")
+=======
+    if secim == "1":
+        kisi_ekle()
+    elif secim == "2":
+        kisi_ara()
+    elif secim == "3":
+        kisi_sil()
+    elif secim == "4":
+        rehberi_goster()
+    elif secim == "5":
+        print("Rehber uygulamasından çıkılıyor.")
+>>>>>>> c391ffc18917467bb95b7afca50a2a01c7724156
         break
     else:
-        print("Geçersiz seçim. Lütfen tekrar deneyin.")
+        print("Geçersiz bir seçim yaptınız. Lütfen tekrar deneyin.")

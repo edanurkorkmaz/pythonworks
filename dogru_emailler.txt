@@ -12,7 +12,3 @@ eda
 eda
 eda
 eda
-eda
-eda
-eda
-eda
