@@ -1,5 +1,5 @@
 rehber = {}
-
+kisi = {}
 def kisi_ekle():
     isim = input("Kişinin adını girin: ")
     telefon = input("Kişinin telefon numarasını girin: ")
@@ -58,3 +58,4 @@ while True:
         break
     else:
         print("Geçersiz bir seçim yaptınız. Lütfen tekrar deneyin.")
+        
