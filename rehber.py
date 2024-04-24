@@ -23,7 +23,7 @@ def kisi_ara():
     if bulunanlar:
         print("Arama Sonuçları:")
         for isim, telefon in bulunanlar:
-            print(f"{isim}: {telefon} aranıyor..")
+            print(f"{isim}: {telefon}")
     else:
         print("Aranan kriterlere uygun kişi bulunamadı.")
 
