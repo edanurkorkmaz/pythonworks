@@ -1,4 +1,4 @@
-# def usalma(number):
+p# def usalma(number):
 #     def inner(power):
 #         return number ** power
     
