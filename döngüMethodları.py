@@ -28,11 +28,11 @@
   #  x+=1
 #print(f"toplam: {result}")
 #-----------------------------------------------------------
-#list1 = [1,2,3,4,5]
-#list2 = ['a','b','c','d','e']
-#list3 = [100,200,300,400,500]
+# list1 = [1,2,3,4,5]
+# list2 = ['a','b','c','d','e']
+# list3 = [100,200,300,400,500]
 
-#print(list(zip(list1, list2, list3)))
+# print(list(zip(list1, list2, list3)))
 #----------------------------------------------------------------
 #(range)  50-100 arasında bir liste üretmek istersek ?
 
@@ -45,8 +45,8 @@
  #  print(i)
    
 #Python List Comphensions
-#for x i range (10):
-#print(x)
+# for x in range (10):
+#  print(x)
   
-#numbers = [x for x in range(10)]
+# numbers = [x for x in range(10)]
 
