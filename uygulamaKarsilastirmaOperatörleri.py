@@ -22,13 +22,14 @@
 # sonuc = (sayi % 2 == 0) 
 # print(f"sayı çift: {sonuc}")
 
-not1 =int(input("1.notu giriniz:"))
-not2 =int(input("2.notu giriniz:"))
-not3 =int(input("3.notu giriniz:"))
+# not1 =int(input("1.notu giriniz:"))
+# not2 =int(input("2.notu giriniz:"))
+# not3 =int(input("3.notu giriniz:"))
 
-ortalama = (not1 + not2 + not3) / 3
-sonuc = ortalama > 50
-print(f"başarılı:{ortalama} {sonuc}")
+# ortalama = (not1 + not2 + not3) / 3
+# sonuc = ortalama > 50
+# print(f"başarılı:{ortalama} {sonuc}")
+
 
 
 
