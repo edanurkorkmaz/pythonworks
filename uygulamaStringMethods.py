@@ -22,3 +22,16 @@
 
 # a = cümle.lower().split()
 # print(a)
+
+# Bir kullanıcıdan 3 basamaklı bir sayı alınız. Ardından, bu sayıdaki her bir rakamın 
+# toplamını hesaplayıp sonuç olarak yazdıran bir Python programı yazınız.
+
+# sayi = input("3 basamaklı rakam giriniz: ")
+
+# birinci_rakam = int(sayi[0])
+# ikinci_rakam = int(sayi[1])
+# ücüncü_rakam = int(sayi[2])
+
+# toplam = birinci_rakam + ikinci_rakam + ücüncü_rakam
+
+# print("Rakamların Toplamı:",toplam)
