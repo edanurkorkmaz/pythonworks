@@ -99,6 +99,7 @@
 
 # kackez = list.count(3)
 # print(kackez)
+
 # kelimeler = ["eda", "python", "öğreniyor."]
 # birlestir = " ".join(kelimeler)
 # print(birlestir)
