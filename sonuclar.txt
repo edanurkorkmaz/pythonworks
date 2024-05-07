@@ -1,5 +1,3 @@
-ahmet yılmaz: CC
-mehmet yılmaz: BB
-deniz efe: CB
-çınar turan: CC
-ahmet  yılmaz: FF
+eda korkmaz : BB - (76.66666666666667)
+turan çınar : CB - (73.33333333333333)
+sude korkmaz : CB - (71.66666666666667)
